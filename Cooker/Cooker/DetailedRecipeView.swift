@@ -9,10 +9,19 @@ import Foundation
 import SwiftUI
 
 struct DetailedRecipeView: View {
+    @Environment(\.dismiss) var dismiss
     var recipe: Recipe
     
     var body: some View {
         VStack {
+            HStack {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "x.circle")
+                }
+                Spacer()
+            }
             Text(recipe.recipeName)
                 .font(.title)
             Image(recipe.imageName)
