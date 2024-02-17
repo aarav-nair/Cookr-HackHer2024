@@ -26,7 +26,13 @@ struct CardView: View {
         // geometry reader to size our content within the frame of its parent view.
         GeometryReader { geometry in
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 5) {
+                
+                Text(recipe.recipeName)
+                    .font(.title)
+                    .bold()
+                    .padding(.horizontal, 15)
+                    .padding(.vertical, 10)
                 
                 // MARK: Image of the card
                 Image(recipe.imageName)
@@ -35,29 +41,55 @@ struct CardView: View {
                 // set 75% of parent's height
                     .frame(width: geometry.size.width, height: geometry.size.height * 0.75)
                     .clipped()
+                    .mask(
+                        RoundedRectangle(cornerRadius: 60)
+                            .padding(.horizontal, 20)
+                    )
+                
+                Divider()
                 
                 // MARK: Info of the card
-                HStack {
-                    
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("food")
-                            .font(.title)
-                            .bold()
-                        Text("recipet")
+                VStack(spacing: 10) {
+                    HStack {
+                        
+                        Text(recipe.funFact ?? "Haha")
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(4)
                             .font(.subheadline)
                             .foregroundStyle(.gray)
+                            .frame(height: 80)
                     }
+                    .padding(.horizontal)
                     
-                    Spacer()
+                    Divider()
                     
-                    Image(systemName: "info.circle")
-                        .foregroundStyle(.blue)
+                    HStack {
+                        
+                        Spacer()
+                        Image(systemName: "star.fill")
+                            .foregroundStyle(.yellow)
+                        Text("Rate")
+                        
+                        Spacer()
+                        
+                        Spacer()
+                        Image(systemName: "clock")
+                            .foregroundStyle(.blue)
+                        Text("cook time")
+                        Spacer()
+                        
+                        Spacer()
+                        Image(systemName: "flame")
+                            .foregroundStyle(.red)
+                        Text("calories")
+                        Spacer()
+                    }
                 }
-                .padding(.horizontal)
+
             }
             .padding(.bottom)
             .background(Color.white)
-            .cornerRadius(15)
+            .cornerRadius(25)
             .shadow(radius: 5)
             
             .animation(.interactiveSpring, value: translation.width)
@@ -77,6 +109,7 @@ struct CardView: View {
                         // swipe to right
                         if (self.translation.width > 180) {
                             self.option = .gallery
+                            handler(recipe.id)
                         }
                         
                         // swipe to left
@@ -94,12 +127,14 @@ struct CardView: View {
                 
             )
         }
+        .frame(width: 325, height: 350)
     }
+    
 }
 
 #Preview {
     
-    let recipe = Recipe(id: 1, imageName: "cheesepizza", recipeName: "1", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"])
+    let recipe = Recipe(id: 1, imageName: "cheesepizza", recipeName: "Dialog Title", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"], funFact: "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made. ")
     
     return CardView(handler: { _ in
         
