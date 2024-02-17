@@ -16,24 +16,27 @@ struct MyRecipesView: View {
         VStack {
             Text("My Recipes")
                 .font(.title)
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))], spacing: 20) {
+            LazyVGrid(columns: [GridItem(), GridItem()], spacing: 20) {
                 ForEach(recipeArray, id: \.self) { recipe in
                     Button {
                         showingSheet.toggle()
                     } label: {
                         Image(recipe.imageName)
+                            .resizable()
+                            .scaledToFit()
                     }
                     .sheet(isPresented: $showingSheet) {
                         DetailedRecipeView(recipe: recipe)
                     }
                 }
             }
-            .padding()
+//            .padding()
+            Spacer()
         }
     }
 }
     
 #Preview {
     let rec = Recipe(id: 1, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
-    return MyRecipesView(recipeArray: [rec])
+    return MyRecipesView(recipeArray: [rec, rec, rec, rec, rec, rec, rec])
 }

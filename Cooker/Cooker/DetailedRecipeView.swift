@@ -14,6 +14,14 @@ struct DetailedRecipeView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "x.circle")
+                }
+                Spacer()
+            }
             Text(recipe.recipeName)
                 .font(.title)
             Image(recipe.imageName)
