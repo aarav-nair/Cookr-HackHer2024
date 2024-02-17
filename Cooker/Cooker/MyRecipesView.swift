@@ -15,11 +15,13 @@ struct MyRecipesView: View {
         VStack {
             Text("My Recipes")
                 .font(.title)
-            ForEach(recipeArray, id: \.self) { recipe in
-                Button {
-                    
-                } label: {
-                    Image(recipe.imageName)
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))], spacing: 20) {
+                ForEach(recipeArray, id: \.self) { recipe in
+                    Button {
+                        
+                    } label: {
+                        Image(recipe.imageName)
+                    }
                 }
             }
             .padding()
