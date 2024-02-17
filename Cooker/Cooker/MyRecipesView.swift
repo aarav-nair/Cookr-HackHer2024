@@ -13,29 +13,29 @@ struct MyRecipesView: View {
     @State private var searchText: String = ""
     
     var body: some View {
-        VStack {
-//            Spacer()
-//            ScrollView {
-                Text("Recipes")
-                    .font(.title)
-                    .bold()
-                Text("Your Favorites")
-                    .font(.title2)
-                NavigationStack {
+        NavigationStack {
+            
+                ZStack {
                     
-                    ForEach(searchResults, id: \.self) { recipe in
-                        IndividualRecipeView(recipe: recipe)
+                    Color.defaultBackgroundColor
+                        .ignoresSafeArea()
+                    VStack {
+                        Text("Recipes")
+                            .font(.title)
+                            .bold()
+                        Text("Your Favorites")
+                            .font(.title2)
+                        ScrollView {
+                            ForEach(searchResults, id: \.self) { recipe in
+                                IndividualRecipeView(recipe: recipe)
+                            }
+                        }
                     }
-                    
                 }
-                .background(Color.defaultBackgroundColor)
-                .searchable(text: $searchText)
-                
-//            }
-//            Spacer()
+            }
+            .searchable(text: $searchText)
+            
         }
-        .background(Color.defaultBackgroundColor)
-    }
     
     var searchResults: [Recipe] {
         if searchText.isEmpty {
