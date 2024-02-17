@@ -1,1 +1,1 @@
-# HackHer2024
+# HackHer2024 project
