@@ -17,7 +17,8 @@ struct MyRecipesView: View {
             ScrollView {
                 Text("Recipes")
                     .font(.title)
-                Text("You Favorites")
+                    .bold()
+                Text("Your Favorites")
                     .font(.title2)
                 ForEach(recipeArray, id: \.self) { recipe in
                     IndividualRecipeView(recipe: recipe)
