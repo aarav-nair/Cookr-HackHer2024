@@ -15,7 +15,7 @@ struct MyRecipesView: View {
     var body: some View {
         VStack {
             Text("My Recipes")
-                .font(.title)
+                .font(Font.custom("MyFont", size: 50, relativeTo: .title))
             LazyVGrid(columns: [GridItem(), GridItem()], spacing: 20) {
                 ForEach(recipeArray, id: \.self) { recipe in
                     Button {
@@ -24,6 +24,9 @@ struct MyRecipesView: View {
                         Image(recipe.imageName)
                             .resizable()
                             .scaledToFit()
+                            .aspectRatio(contentMode: .fit)
+                            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                            .padding()
                     }
                     .sheet(isPresented: $showingSheet) {
                         DetailedRecipeView(recipe: recipe)
