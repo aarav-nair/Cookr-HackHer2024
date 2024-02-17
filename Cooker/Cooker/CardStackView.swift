@@ -20,7 +20,6 @@ struct CardStackView: View {
             
             ZStack {
                 
-                
                 VStack(spacing: 30) {
                     
                     Spacer()
