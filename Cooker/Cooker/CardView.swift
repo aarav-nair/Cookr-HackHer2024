@@ -47,8 +47,8 @@ struct CardView: View {
             }
             .padding(.bottom)
             .background(Color.white)
-            .cornerRadius(20)
-            .shadow(radius: 10)
+            .cornerRadius(15)
+            .shadow(radius: 5)
             
             .animation(.interactiveSpring, value: translation.width)
             
