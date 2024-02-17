@@ -24,6 +24,7 @@ struct MyRecipesView: View {
             }
             Spacer()
         }
+        .background(Color.defaultBackgroundColor)
     }
 }
 
@@ -55,12 +56,12 @@ struct IndividualRecipeView: View {
                 }
                 HStack {
                     Spacer()
-                    Image(systemName: "star")
+                    Image(systemName: "takeoutbag.and.cup.and.straw")
                     Text("\(recipe.ingredients.count) Ingredients")
                         .font(.subheadline)
                     Spacer()
                     Image(systemName: "clock")
-                    Text("\(recipe.cookTime)")
+                    Text("\(recipe.cookTime) Minutes")
                         .font(.subheadline)
                     Spacer()
                     Image(systemName: "flame")
@@ -74,14 +75,14 @@ struct IndividualRecipeView: View {
             }
         }
         .padding(.horizontal)
-        .background(Color.mint)
+        .background(Color.defaultForegroundColor)
         .clipShape(RoundedRectangle(cornerRadius: 25.0))
     }
 }
     
 #Preview {
-    let rec = Recipe(id: 1, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
-    let rec2 = Recipe(id: 2, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
-    let rec3 = Recipe(id: 3, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
+    let rec = Recipe(id: 1, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, calories: 300, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
+    let rec2 = Recipe(id: 2, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, calories: 300, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
+    let rec3 = Recipe(id: 3, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, calories: 300, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
     return MyRecipesView(recipeArray: [rec, rec2, rec3])
 }

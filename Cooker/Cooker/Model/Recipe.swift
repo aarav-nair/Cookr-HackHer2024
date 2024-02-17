@@ -17,6 +17,8 @@ struct Recipe: Identifiable, Hashable {
     
     var cookTime: Int
     
+    var calories: Int
+    
     var cuisine: String
     
     var dietaryPreferences: [String]

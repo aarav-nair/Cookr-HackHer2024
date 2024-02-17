@@ -134,7 +134,7 @@ struct CardView: View {
 
 #Preview {
     
-    let recipe = Recipe(id: 1, imageName: "cheesepizza", recipeName: "Dialog Title", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"], funFact: "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made. ")
+    let recipe = Recipe(id: 1, imageName: "cheesepizza", recipeName: "Dialog Title", cookTime: 30, calories: 300, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"], funFact: "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made. ")
     
     return CardView(handler: { _ in
         
