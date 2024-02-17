@@ -15,28 +15,33 @@ struct CardStackView: View {
     ]
     
     var body: some View {
-        VStack {
+        
+        NavigationStack {
             
-            GeometryReader { geometry in
+            VStack(spacing: 30) {
                 
+                Spacer()
                 
-                VStack {
-                    
-                    ZStack {
+                GeometryReader { geometry in
+                
+                    VStack {
                         
-                        ForEach(recipes, id: \.self) { recipe in
-                            CardView()
-                                .frame(width: getCardWidth(geometry, id: recipe.id), height: 400)
-                                .offset(x: 0, y: getCardOffset(geometry, id: recipe.id))
+                        ZStack {
+                            
+                            ForEach(recipes, id: \.self) { recipe in
+                                CardView()
+                                    .frame(width: getCardWidth(geometry, id: recipe.id), height: 400)
+                                    .offset(x: 0, y: getCardOffset(geometry, id: recipe.id))
+                                
+                            }
                             
                         }
                         
                     }
-                    
-//                    Spacer()
                 }
+                
             }
-            
+            .navigationTitle("Card view")
         }
         .padding()
     }
@@ -47,8 +52,8 @@ struct CardStackView: View {
     }
     
     private func getCardOffset(_ geometry: GeometryProxy, id: Int) -> CGFloat {
-            return  CGFloat(recipes.count - 1 - id) * 10
-        }
+        return  CGFloat(recipes.count - 1 - id) * 10
+    }
     
 }
 
