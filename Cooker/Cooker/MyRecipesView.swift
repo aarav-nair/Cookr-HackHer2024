@@ -30,7 +30,6 @@ struct MyRecipesView: View {
                     }
                 }
             }
-//            .padding()
             Spacer()
         }
     }
