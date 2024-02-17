@@ -21,12 +21,11 @@ struct DetailedRecipeView: View {
                     Image(systemName: "x.circle")
                         .resizable()
                         .frame(width: 30, height: 30, alignment: .center)
-                        .padding(.horizontal
-                        )
+                        .padding(.horizontal)
                 }
                 Spacer()
                 Button {
-
+                    
                 } label: {
                     Image(systemName: "trash")
                         .padding()
