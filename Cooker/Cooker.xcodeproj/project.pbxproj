@@ -12,6 +12,7 @@
 		5EA6FBAE2B811864009C292B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EA6FBAD2B811864009C292B /* Assets.xcassets */; };
 		5EA6FBB12B811864009C292B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EA6FBB02B811864009C292B /* Preview Assets.xcassets */; };
 		5EA6FBC02B8122EA009C292B /* MyRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6FBBF2B8122EA009C292B /* MyRecipesView.swift */; };
+		5EA6FBC22B81245D009C292B /* DetailedRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6FBC12B81245D009C292B /* DetailedRecipeView.swift */; };
 		AEBB7C562B811D03002A30D9 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB7C552B811D03002A30D9 /* Recipe.swift */; };
 		AEBB7C582B811D33002A30D9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBB7C572B811D33002A30D9 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -23,6 +24,7 @@
 		5EA6FBAD2B811864009C292B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EA6FBB02B811864009C292B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5EA6FBBF2B8122EA009C292B /* MyRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesView.swift; sourceTree = "<group>"; };
+		5EA6FBC12B81245D009C292B /* DetailedRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedRecipeView.swift; sourceTree = "<group>"; };
 		AEBB7C552B811D03002A30D9 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		AEBB7C572B811D33002A30D9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +61,7 @@
 			children = (
 				5EA6FBA92B811863009C292B /* CookerApp.swift */,
 				5EA6FBBF2B8122EA009C292B /* MyRecipesView.swift */,
+				5EA6FBC12B81245D009C292B /* DetailedRecipeView.swift */,
 				AEBB7C542B811CFB002A30D9 /* Model */,
 				5EA6FBAB2B811863009C292B /* ContentView.swift */,
 				5EA6FBAD2B811864009C292B /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 			files = (
 				AEBB7C582B811D33002A30D9 /* User.swift in Sources */,
 				AEBB7C562B811D03002A30D9 /* Recipe.swift in Sources */,
+				5EA6FBC22B81245D009C292B /* DetailedRecipeView.swift in Sources */,
 				5EA6FBAC2B811863009C292B /* ContentView.swift in Sources */,
 				5EA6FBC02B8122EA009C292B /* MyRecipesView.swift in Sources */,
 				5EA6FBAA2B811863009C292B /* CookerApp.swift in Sources */,
