@@ -12,13 +12,15 @@ struct MyRecipesView: View {
     var recipeArray: [Recipe]
     
     var body: some View {
-        VStack {
-            Text("Recipes")
-                .font(Font.custom("MyFont", size: 50, relativeTo: .title))
+        HStack {
+            Spacer()
             VStack {
+                Text("Recipes")
+                    .font(Font.custom("MyFont", size: 50, relativeTo: .title))
                 ForEach(recipeArray, id: \.self) { recipe in
                     IndividualRecipeView(recipe: recipe)
                 }
+                Spacer()
             }
             Spacer()
         }
@@ -60,15 +62,20 @@ struct IndividualRecipeView: View {
                     Image(systemName: "clock")
                     Text("\(recipe.cookTime)")
                         .font(.subheadline)
+                    Spacer()
                     Image(systemName: "flame")
                     Text("Calories")
                         .font(.subheadline)
+                    Spacer()
                 }
             }
             .sheet(isPresented: $showingSheet) {
                 DetailedRecipeView(recipe: recipe)
             }
         }
+        .padding(.horizontal)
+        .background(Color.mint)
+        .clipShape(RoundedRectangle(cornerRadius: 25.0))
     }
 }
     
