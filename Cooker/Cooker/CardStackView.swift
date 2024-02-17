@@ -11,39 +11,45 @@ struct CardStackView: View {
     
     @State private var recipes: [Recipe] = [
         Recipe(id: 1, imageName: "cheesepizza", recipeName: "1", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"]),
-        Recipe(id: 2, imageName: "food", recipeName: "1", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"])
+        Recipe(id: 2, imageName: "food", recipeName: "1", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"], funFact: "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.")
     ]
     
     var body: some View {
         
         NavigationStack {
             
-            VStack(spacing: 30) {
+            ZStack {
                 
-                Spacer()
                 
-                GeometryReader { geometry in
-                
-                    VStack {
+                VStack(spacing: 30) {
+                    
+                    Spacer()
+                    
+                    GeometryReader { geometry in
                         
-                        ZStack {
+                        VStack {
                             
-                            ForEach(recipes, id: \.self) { recipe in
-                                CardView(handler: removeReceipt, recipe: recipe)
-                                    .frame(width: getCardWidth(geometry, id: recipe.id), height: 400)
-                                    .offset(x: 0, y: getCardOffset(geometry, id: recipe.id))
+                            ZStack {
+                                
+                                ForEach(recipes, id: \.self) { recipe in
+                                    CardView(handler: removeReceipt, recipe: recipe)
+                                        .frame(width: getCardWidth(geometry, id: recipe.id), height: 400)
+                                        .offset(x: 0, y: getCardOffset(geometry, id: recipe.id))
+                                    
+                                }
                                 
                             }
                             
                         }
-                        
                     }
+                    
                 }
-                
             }
-            .navigationTitle("Card view")
+            .navigationTitle("Choose your receipt")
+            .background(Color.defaultBackgroundColor)
         }
         .padding()
+        .background(Color.defaultBackgroundColor)
     }
     
     private func removeReceipt(_ id: Int) {
@@ -56,7 +62,7 @@ struct CardStackView: View {
     }
     
     private func getCardOffset(_ geometry: GeometryProxy, id: Int) -> CGFloat {
-        return  CGFloat(recipes.count - 1 - id) * 10
+        return  CGFloat(recipes.count - 1 - id) * 15
     }
     
 }
