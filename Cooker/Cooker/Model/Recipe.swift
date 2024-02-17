@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct Recipe: Hashable {
+struct Recipe: Identifiable, Hashable {
+    
+    var id: Int
     
     var imageName: String
     
