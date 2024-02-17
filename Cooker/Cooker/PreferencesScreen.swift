@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct Preference: View {
+
+    
+class Preference: ObservableObject, View {
     var pref: String
-    @Binding var selectedPreferences: [String]
+    @Binding @Published var selectedPreferences: [String]
     
     var isSelectablePreference: Bool {!selectedPreferences.contains(pref)}
     
@@ -32,9 +34,9 @@ struct Preference: View {
     }
 }
 
-struct Cuisine: View {
+class Cuisine: ObservableObject, View {
     var cuisine: String
-    @Binding var selectedCuisines: [String]
+    @Binding @Published var selectedCuisines: [String]
     
     var isSelectableCuisine: Bool {!selectedCuisines.contains(cuisine)}
     
@@ -59,8 +61,8 @@ struct Cuisine: View {
 struct PreferencesScreen: View {
     @State var dietaryPreferences = ["Vegan", "Vegetarian", "Lactose-intolerant", "Gluten Free", "Kosher"]
     @State var cuisines = ["Italian", "Japanese", "Chinese", "Indian", "American", "Nigerian", "Jamaican"]
-    @State private var selectedPreferences = [String]()
-    @State private var selectedCuisines = [String]()
+    @StateObject private var selectedPreferences = [String]()
+    @StateObject private var selectedCuisines = [String]()
     
 
     var body: some View {
