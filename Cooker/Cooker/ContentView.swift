@@ -19,7 +19,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            PreferencesScreen()
+            PreferencesScreen(tabSelection: $selection)
                 .tag(Selection.preference)
                 .tabItem {
                     Label("Preference", systemImage: "tray.and.arrow.down.fill")
@@ -30,7 +30,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Card Stack", systemImage: "menucard")
                 }
-            Text("Cookbook")
+            MyRecipesView(recipeArray: [])
                 .tag(Selection.cookbook)
                 .tabItem {
                     Label("Cookbook", systemImage: selection == .cookbook ? "book.fill": "book.closed")

@@ -59,16 +59,21 @@ struct Cuisine: View {
 
 
 struct PreferencesScreen: View {
+    
+    @Binding var tabSelection: Selection
+    
     @State var dietaryPreferences = ["Vegan", "Vegetarian", "Lactose-intolerant", "Gluten Free", "Kosher"]
     @State var cuisines = ["Italian", "Japanese", "Chinese", "Indian", "American", "Nigerian", "Jamaican"]
     @State private var selectedPreferences = [String]()
     @State private var selectedCuisines = [String]()
     
+    @Environment(CookViewModel.self) private var cookViewModel
+    
     
     var body: some View {
         
         ZStack (alignment: .bottom){
-            Color(red: 0.87, green: 0.8, blue: 0.87)
+            Color.defaultBackgroundColor
                 .ignoresSafeArea()
             ScrollView {
                 VStack (alignment: .center, spacing: 10){
@@ -128,7 +133,9 @@ struct PreferencesScreen: View {
                     Spacer()
                     
                     Button {
-                        
+                        cookViewModel.selectedPreferences = selectedPreferences
+                        cookViewModel.selectedCuisines = selectedCuisines
+                        tabSelection = .card
                     } label : {
                         Text("Done")
                             .font(.system(size: 15, weight: .semibold, design: .default))
@@ -150,5 +157,5 @@ struct PreferencesScreen: View {
 }
 
 #Preview {
-    PreferencesScreen()
+    PreferencesScreen(tabSelection: .constant(Selection.preference))
 }
