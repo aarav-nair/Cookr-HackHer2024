@@ -7,15 +7,34 @@
 
 import SwiftUI
 
+enum Selection {
+    case preference
+    case card
+    case cookbook
+}
+
 struct ContentView: View {
+    
+    @State private var selection: Selection = .preference
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView(selection: $selection) {
+            Text("Preference page")
+                    .tag(Selection.preference)
+                    .tabItem {
+                        Label("Preference", systemImage: "tray.and.arrow.down.fill")
+                    }
+                CardStackView()
+                    .tag(Selection.card)
+                    .tabItem {
+                        Label("Card Stack", systemImage: "menucard")
+                    }
+                Text("Cookbook")
+                    .tag(Selection.cookbook)
+                    .tabItem {
+                        Label("Cookbook", systemImage: selection == .cookbook ? "book.fill": "book.closed")
+                    }
         }
-        .padding()
     }
 }
 
