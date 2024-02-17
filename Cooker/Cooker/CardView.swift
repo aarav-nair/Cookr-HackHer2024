@@ -17,6 +17,10 @@ struct CardView: View {
     @State private var translation: CGSize = .zero
     @State private var option: Option? = nil
     
+    let handler: (_ id: Int) -> Void
+    
+    let recipe: Recipe
+    
     var body: some View {
         
         // geometry reader to size our content within the frame of its parent view.
@@ -24,12 +28,8 @@ struct CardView: View {
             
             VStack(alignment: .leading) {
                 
-                if let option {
-                    Text(option.rawValue)
-                }
-                
                 // MARK: Image of the card
-                Image("cheesepizza")
+                Image(recipe.imageName)
                     .resizable()
                     .scaledToFill()
                 // set 75% of parent's height
@@ -63,7 +63,7 @@ struct CardView: View {
             .animation(.interactiveSpring, value: translation.width)
             
             
-            // make the card horizontally
+            // make the card move horizontally
             .offset(x: translation.width, y: 0)
             
             // make the rotation
@@ -74,13 +74,15 @@ struct CardView: View {
                 DragGesture()
                     .onChanged { value in
                         
-                        // swipe to left
-                        if (abs(self.translation.width) < 90) {
-                            self.option = .trash
-                        }
-                        
+                        // swipe to right
                         if (self.translation.width > 180) {
                             self.option = .gallery
+                        }
+                        
+                        // swipe to left
+                        if (self.translation.width < -180) {
+                            self.option = .trash
+                            handler(recipe.id)
                         }
                         
                         self.translation = value.translation
@@ -96,7 +98,12 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView()
+    
+    let recipe = Recipe(id: 1, imageName: "cheesepizza", recipeName: "1", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"])
+    
+    return CardView(handler: { _ in
+        
+    }, recipe: recipe)
         .frame(width: 300, height: 300)
         .padding()
 }

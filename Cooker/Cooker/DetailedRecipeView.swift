@@ -19,7 +19,10 @@ struct DetailedRecipeView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "x.circle")
-                        .padding()
+                        .resizable()
+                        .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .padding(.horizontal
+                        )
                 }
                 Spacer()
                 Button {
@@ -36,26 +39,31 @@ struct DetailedRecipeView: View {
                 .resizable()
                 .frame(width: 150, height: 150)
             
-            Text("Cook Time: \(recipe.cookTime)")
+            Text("Cook Time: \(recipe.cookTime) minutes")
                 .font(.subheadline)
             if (recipe.funFact != nil) {
                 Text("Fun Fact: " + recipe.funFact!)
                     .font(.subheadline)
             }
-            
-            Spacer()
+
             Text("Ingredients:")
                 .font(.title2)
             ForEach(recipe.ingredients, id: \.self) { ingredient in
-                Text("• " + ingredient)
-                    .font(.body)
+                HStack {
+                    Text("• " + ingredient)
+                        .font(.body)
+                        .padding(.horizontal)
+                    Spacer()
+                }
             }
             
-            Spacer()
             Text("Instructions:")
-                .font(.title2)
             ForEach(recipe.instructions.indices) { i in
-                Text("\(i+1). \(recipe.instructions[i])")
+                HStack {
+                    Text("\(i+1). \(recipe.instructions[i])")
+                        .padding(.horizontal)
+                    Spacer()
+                }
             }
         }
     }
