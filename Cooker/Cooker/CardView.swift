@@ -7,9 +7,15 @@
 
 import SwiftUI
 
+enum Option: String {
+    case trash
+    case gallery
+}
+
 struct CardView: View {
     
     @State private var translation: CGSize = .zero
+    @State private var option: Option? = nil
     
     var body: some View {
         
@@ -17,6 +23,10 @@ struct CardView: View {
         GeometryReader { geometry in
             
             VStack(alignment: .leading) {
+                
+                if let option {
+                    Text(option.rawValue)
+                }
                 
                 // MARK: Image of the card
                 Image("cheesepizza")
@@ -63,10 +73,21 @@ struct CardView: View {
             .gesture(
                 DragGesture()
                     .onChanged { value in
+                        
+                        // swipe to left
+                        if (abs(self.translation.width) < 90) {
+                            self.option = .trash
+                        }
+                        
+                        if (self.translation.width > 180) {
+                            self.option = .gallery
+                        }
+                        
                         self.translation = value.translation
                     }
                     .onEnded { value in
                         self.translation = .zero
+                        option = nil
                     }
                 
             )
