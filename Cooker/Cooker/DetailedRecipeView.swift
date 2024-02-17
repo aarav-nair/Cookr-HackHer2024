@@ -19,6 +19,7 @@ struct DetailedRecipeView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "x.circle")
+                        .padding()
                 }
                 Spacer()
             }
