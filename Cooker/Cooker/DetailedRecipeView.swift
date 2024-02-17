@@ -20,7 +20,7 @@ struct DetailedRecipeView: View {
                 } label: {
                     Image(systemName: "x.circle")
                         .resizable()
-                        .frame(width: 30, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .frame(width: 30, height: 30, alignment: .center)
                         .padding(.horizontal
                         )
                 }

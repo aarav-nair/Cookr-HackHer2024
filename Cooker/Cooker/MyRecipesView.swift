@@ -14,9 +14,11 @@ struct MyRecipesView: View {
     var body: some View {
         HStack {
             Spacer()
-            VStack {
+            ScrollView {
                 Text("Recipes")
-                    .font(Font.custom("MyFont", size: 50, relativeTo: .title))
+                    .font(.title)
+                Text("You Favorites")
+                    .font(.title2)
                 ForEach(recipeArray, id: \.self) { recipe in
                     IndividualRecipeView(recipe: recipe)
                 }
@@ -41,32 +43,47 @@ struct IndividualRecipeView: View {
                 HStack {
                     Image(recipe.imageName)
                         .resizable()
-                        .scaledToFit()
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
                         .padding()
+                    
                     VStack {
                         Text(recipe.recipeName)
                             .font(.title)
-                        if (recipe.funFact != nil) {
-                            Text("Fun Fact: " + recipe.funFact!)
-                                .font(.subheadline)
-                        }
+                            .bold()
+                            .padding(.horizontal, 15)
+                            .padding(.vertical, 10)
+                            .foregroundStyle(.black)
+                        Text(recipe.funFact ?? "")
+                            .font(.subheadline)
+                            .foregroundStyle(.black)
                     }
                 }
                 HStack {
                     Spacer()
                     Image(systemName: "takeoutbag.and.cup.and.straw")
+                        .bold()
+                        .foregroundStyle(.black)
                     Text("\(recipe.ingredients.count) Ingredients")
                         .font(.subheadline)
+                        .bold()
+                        .foregroundStyle(.black)
                     Spacer()
                     Image(systemName: "clock")
-                    Text("\(recipe.cookTime) Minutes")
+                        .bold()
+                        .foregroundStyle(.black)
+                    Text("\(recipe.cookTime) Min")
                         .font(.subheadline)
+                        .bold()
+                        .foregroundStyle(.black)
                     Spacer()
                     Image(systemName: "flame")
-                    Text("Calories")
+                        .foregroundStyle(.black)
+                        .bold()
+                    Text("\(recipe.calories) Cal")
                         .font(.subheadline)
+                        .bold()
+                        .foregroundStyle(.black)
                     Spacer()
                 }
             }
@@ -81,7 +98,7 @@ struct IndividualRecipeView: View {
 }
     
 #Preview {
-    let rec = Recipe(id: 1, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, calories: 300, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
+    let rec = Recipe(id: 1, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, calories: 300, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."], funFact: "Pizza tastes good")
     let rec2 = Recipe(id: 2, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, calories: 300, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
     let rec3 = Recipe(id: 3, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, calories: 300, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
     return MyRecipesView(recipeArray: [rec, rec2, rec3])
