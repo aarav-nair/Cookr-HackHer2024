@@ -24,10 +24,6 @@ struct CardView: View {
             
             VStack(alignment: .leading) {
                 
-                if let option {
-                    Text(option.rawValue)
-                }
-                
                 // MARK: Image of the card
                 Image("cheesepizza")
                     .resizable()
@@ -74,13 +70,14 @@ struct CardView: View {
                 DragGesture()
                     .onChanged { value in
                         
-                        // swipe to left
-                        if (abs(self.translation.width) < 90) {
-                            self.option = .trash
+                        // swipe to right
+                        if (self.translation.width > 60) {
+                            self.option = .gallery
                         }
                         
-                        if (self.translation.width > 180) {
-                            self.option = .gallery
+                        // swipe to left
+                        if (self.translation.width < -60) {
+                            self.option = .trash
                         }
                         
                         self.translation = value.translation
