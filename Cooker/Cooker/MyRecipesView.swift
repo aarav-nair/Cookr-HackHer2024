@@ -19,7 +19,7 @@ struct MyRecipesView: View {
                 Button {
                     
                 } label: {
-                    Image(systemName: recipe.imageName)
+                    Image(recipe.imageName)
                 }
             }
             .padding()
