@@ -17,6 +17,8 @@ struct CardView: View {
     @State private var translation: CGSize = .zero
     @State private var option: Option? = nil
     
+    let handler: (_ id: Int) -> Void
+    
     let recipe: Recipe
     
     var body: some View {
@@ -61,7 +63,7 @@ struct CardView: View {
             .animation(.interactiveSpring, value: translation.width)
             
             
-            // make the card horizontally
+            // make the card move horizontally
             .offset(x: translation.width, y: 0)
             
             // make the rotation
@@ -73,13 +75,14 @@ struct CardView: View {
                     .onChanged { value in
                         
                         // swipe to right
-                        if (self.translation.width > 60) {
+                        if (self.translation.width > 180) {
                             self.option = .gallery
                         }
                         
                         // swipe to left
-                        if (self.translation.width < -60) {
+                        if (self.translation.width < -180) {
                             self.option = .trash
+                            handler(recipe.id)
                         }
                         
                         self.translation = value.translation
@@ -98,7 +101,9 @@ struct CardView: View {
     
     let recipe = Recipe(id: 1, imageName: "cheesepizza", recipeName: "1", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"])
     
-    return CardView(recipe: recipe)
+    return CardView(handler: { _ in
+        
+    }, recipe: recipe)
         .frame(width: 300, height: 300)
         .padding()
 }

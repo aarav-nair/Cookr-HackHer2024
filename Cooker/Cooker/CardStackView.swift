@@ -29,7 +29,7 @@ struct CardStackView: View {
                         ZStack {
                             
                             ForEach(recipes, id: \.self) { recipe in
-                                CardView(recipe: recipe)
+                                CardView(handler: removeReceipt, recipe: recipe)
                                     .frame(width: getCardWidth(geometry, id: recipe.id), height: 400)
                                     .offset(x: 0, y: getCardOffset(geometry, id: recipe.id))
                                 
@@ -44,6 +44,10 @@ struct CardStackView: View {
             .navigationTitle("Card view")
         }
         .padding()
+    }
+    
+    private func removeReceipt(_ id: Int) {
+        recipes = recipes.filter { $0.id != id }
     }
     
     private func getCardWidth(_ geometry: GeometryProxy, id: Int) -> CGFloat {
