@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct MyRecipesView: View {
+    @State private var showingSheet = false
     var recipeArray: [Recipe]
     
     var body: some View {
@@ -18,9 +19,12 @@ struct MyRecipesView: View {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))], spacing: 20) {
                 ForEach(recipeArray, id: \.self) { recipe in
                     Button {
-                        
+                        showingSheet.toggle()
                     } label: {
                         Image(recipe.imageName)
+                    }
+                    .sheet(isPresented: $showingSheet) {
+                        DetailedRecipeView(recipe: recipe)
                     }
                 }
             }

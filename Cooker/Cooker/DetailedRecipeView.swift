@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct DetailedRecipeView: View {
+    @Environment(\.dismiss) var dismiss
     var recipe: Recipe
     
     var body: some View {
