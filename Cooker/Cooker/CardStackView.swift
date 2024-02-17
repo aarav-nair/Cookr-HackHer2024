@@ -10,7 +10,7 @@ import SwiftUI
 struct CardStackView: View {
     
     @State private var recipes: [Recipe] = [
-        Recipe(id: 1, imageName: "food", recipeName: "1", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"]),
+        Recipe(id: 1, imageName: "cheesepizza", recipeName: "1", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"]),
         Recipe(id: 2, imageName: "food", recipeName: "1", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"])
     ]
     
@@ -29,7 +29,7 @@ struct CardStackView: View {
                         ZStack {
                             
                             ForEach(recipes, id: \.self) { recipe in
-                                CardView()
+                                CardView(recipe: recipe)
                                     .frame(width: getCardWidth(geometry, id: recipe.id), height: 400)
                                     .offset(x: 0, y: getCardOffset(geometry, id: recipe.id))
                                 

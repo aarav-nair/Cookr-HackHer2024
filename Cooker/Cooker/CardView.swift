@@ -17,6 +17,8 @@ struct CardView: View {
     @State private var translation: CGSize = .zero
     @State private var option: Option? = nil
     
+    let recipe: Recipe
+    
     var body: some View {
         
         // geometry reader to size our content within the frame of its parent view.
@@ -25,7 +27,7 @@ struct CardView: View {
             VStack(alignment: .leading) {
                 
                 // MARK: Image of the card
-                Image("cheesepizza")
+                Image(recipe.imageName)
                     .resizable()
                     .scaledToFill()
                 // set 75% of parent's height
@@ -93,7 +95,10 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView()
+    
+    let recipe = Recipe(id: 1, imageName: "cheesepizza", recipeName: "1", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"])
+    
+    return CardView(recipe: recipe)
         .frame(width: 300, height: 300)
         .padding()
 }
