@@ -22,6 +22,13 @@ struct DetailedRecipeView: View {
                         .padding()
                 }
                 Spacer()
+                Button {
+
+                } label: {
+                    Image(systemName: "trash")
+                        .padding()
+                        .foregroundColor(Color.red)
+                }
             }
             Text(recipe.recipeName)
                 .font(.title)

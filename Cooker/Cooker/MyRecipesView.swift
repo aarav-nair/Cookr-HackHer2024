@@ -56,7 +56,7 @@ struct IndividualRecipeView: View {
                 HStack {
                     Spacer()
                     Image(systemName: "star")
-                    Text("Rate")
+                    Text("\(recipe.ingredients.count) Ingredients")
                         .font(.subheadline)
                     Spacer()
                     Image(systemName: "clock")
