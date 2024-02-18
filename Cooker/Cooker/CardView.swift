@@ -68,7 +68,7 @@ struct CardView: View {
                         Spacer()
                         Image(systemName: "takeoutbag.and.cup.and.straw")
                             .foregroundStyle(.yellow)
-                        Text("\(recipe.ingredients.count) Ingredients")
+                        Text("\(recipe.ingredients.count) Ingr")
                             .font(.subheadline)
                             .bold()
                         
@@ -77,7 +77,7 @@ struct CardView: View {
                         Spacer()
                         Image(systemName: "clock")
                             .foregroundStyle(.blue)
-                        Text("(\(recipe.cookTime) Minutes")
+                        Text("\(recipe.cookTime) Min")
                             .font(.subheadline)
                             .bold()
                         Spacer()
