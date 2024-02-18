@@ -42,4 +42,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(\.font, Font.system(size: 20, design: .serif))
 }

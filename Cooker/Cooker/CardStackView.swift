@@ -25,6 +25,8 @@ struct CardStackView: View {
                 Color.defaultBackgroundColor.edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 30) {
+                    Text("Choose recipes")
+                        .font(.system(size: 30, weight: .light, design: .serif))
                     
                     Spacer()
                     
@@ -52,7 +54,6 @@ struct CardStackView: View {
                     
                 }
             }
-            .navigationTitle("Choose recipes")
         }
 //        .padding()
         .background(Color.defaultBackgroundColor)

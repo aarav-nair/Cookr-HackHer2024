@@ -21,11 +21,10 @@ struct MyRecipesView: View {
                     Color.defaultBackgroundColor
                         .ignoresSafeArea()
                     VStack {
-                        Text("Recipes")
-                            .font(.title)
-                            .bold()
+                        Text("Welcome back! Chef...")
+                            .font(.system(size: 30, weight: .light, design: .serif))
                         Text("Your Favorites")
-                            .font(.title2)
+                            .font(.system(size: 20 ,weight: .medium ,design: .serif))
                         ScrollView {
                             ForEach(searchResults, id: \.self) { recipe in
                                 IndividualRecipeView(recipe: recipe)
@@ -66,13 +65,12 @@ struct IndividualRecipeView: View {
                     
                     VStack {
                         Text(recipe.recipeName)
-                            .font(.title)
-                            .bold()
+                            .font(.system(size: 20 ,weight: .bold ,design: .serif))
                             .padding(.horizontal, 15)
                             .padding(.vertical, 10)
                             .foregroundStyle(.black)
-                        Text(recipe.funFact ?? "")
-                            .font(.subheadline)
+                        Text(recipe.description ?? "")
+                            .font(.system(size: 15 ,weight: .thin ,design: .serif))
                             .foregroundStyle(.black)
                     }
                 }

@@ -42,14 +42,16 @@ struct DetailedRecipeView: View {
                     }
                 }
                 Text(recipe.recipeName)
-                    .font(.title)
-                    .bold()
+                    .font(.system(size: 20 ,weight: .bold ,design: .serif))
                     .foregroundStyle(Color.black)
                 Image(recipe.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .clipShape(Circle())
                     .padding()
+                Text(recipe.description ?? "")
+                    .font(.system(size: 15 ,weight: .thin ,design: .serif))
+                    .foregroundStyle(.black)
                 
                 HStack {
                     Spacer()
@@ -76,12 +78,12 @@ struct DetailedRecipeView: View {
                 }
                 
                 Text("Ingredients:")
-                    .font(.title2)
+                    .font(.system(size: 15 ,weight: .semibold ,design: .serif))
                     .foregroundStyle(Color.black)
                 ForEach(recipe.ingredients, id: \.self) { ingredient in
                     HStack {
                         Text("• " + ingredient)
-                            .font(.body)
+                            .font(.system(size: 12 ,weight: .thin ,design: .serif))
                             .padding(.horizontal)
                             .foregroundStyle(Color.black)
                         Spacer()
@@ -89,12 +91,13 @@ struct DetailedRecipeView: View {
                 }
                 
                 Text("Instructions:")
-                    .font(.title2)
+                    .font(.system(size: 15 ,weight: .semibold ,design: .serif))
                     .foregroundStyle(Color.black)
                 ForEach(recipe.instructions.indices) { i in
                     HStack {
                         Text("\(i+1). \(recipe.instructions[i])")
-                            .padding(.horizontal)
+                            .font(.system(size: 12 ,weight: .thin ,design: .serif))
+//                            .padding()
                             .foregroundStyle(Color.black)
                         Spacer()
                     }

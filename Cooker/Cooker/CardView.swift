@@ -31,8 +31,7 @@ struct CardView: View {
             VStack(alignment: .leading, spacing: 5) {
                 
                 Text(recipe.recipeName)
-                    .font(.title)
-                    .bold()
+                    .font(.system(size: 20 ,weight: .medium ,design: .serif))
                     .padding(.horizontal, 15)
                     .padding(.vertical, 10)
                 
@@ -55,10 +54,9 @@ struct CardView: View {
                     HStack {
                         
                         Text(recipe.description ?? "")
+                            .font(.system(size: 15 ,weight: .thin ,design: .serif))
                             .multilineTextAlignment(.leading)
                             .lineLimit(4)
-                            .font(.subheadline)
-                            .foregroundStyle(.gray)
                             .frame(height: 80)
                     }
                     .padding(.horizontal)
@@ -71,6 +69,7 @@ struct CardView: View {
                         Image(systemName: "star.fill")
                             .foregroundStyle(.yellow)
                         Text("Rate")
+                            .font(.system(size: 15 ,weight: .thin ,design: .serif))
                         
                         Spacer()
                         
@@ -78,12 +77,14 @@ struct CardView: View {
                         Image(systemName: "clock")
                             .foregroundStyle(.blue)
                         Text("cook time")
+                            .font(.system(size: 15 ,weight: .thin ,design: .serif))
                         Spacer()
                         
                         Spacer()
                         Image(systemName: "flame")
                             .foregroundStyle(.red)
                         Text("calories")
+                            .font(.system(size: 15 ,weight: .thin ,design: .serif))
                         Spacer()
                     }
                 }
