@@ -105,6 +105,7 @@ struct IndividualRecipeView: View {
             }
             .sheet(isPresented: $showingSheet) {
                 DetailedRecipeView(recipe: recipe)
+                    .background(Color.defaultBackgroundColor)
             }
         }
         .padding(.horizontal)
