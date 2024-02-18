@@ -66,9 +66,9 @@ struct CardView: View {
                     HStack {
                         
                         Spacer()
-                        Image(systemName: "star.fill")
+                        Image(systemName: "takeoutbag.and.cup.and.straw")
                             .foregroundStyle(.yellow)
-                        Text("Rate")
+                        Text("Ingredients")
                             .font(.system(size: 15 ,weight: .thin ,design: .serif))
                         
                         Spacer()
@@ -81,9 +81,9 @@ struct CardView: View {
                         Spacer()
                         
                         Spacer()
-                        Image(systemName: "flame")
+                        Image(systemName: "gauge.with.dots.needle.bottom.50percent")
                             .foregroundStyle(.red)
-                        Text("calories")
+                        Text(GetDifficulty(rec: recipe))
                             .font(.system(size: 15 ,weight: .thin ,design: .serif))
                         Spacer()
                     }

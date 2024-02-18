@@ -71,9 +71,12 @@ struct DetailedRecipeView: View {
                         .bold()
                         .foregroundStyle(.black)
                     Spacer()
-                    Image(systemName: "flame")
-                        .foregroundStyle(.black)
+                    Image(systemName: "gauge.with.dots.needle.bottom.50percent")
+                        .foregroundStyle(.red)
+                    Text(GetDifficulty(rec: recipe))
+                        .font(.subheadline)
                         .bold()
+                        .foregroundStyle(.black)
                     Spacer()
                 }
                 

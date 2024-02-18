@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5EA196212B825391002DDDDB /* GetDifficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA196202B825391002DDDDB /* GetDifficulty.swift */; };
 		5EA6FBAA2B811863009C292B /* CookerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6FBA92B811863009C292B /* CookerApp.swift */; };
 		5EA6FBAC2B811863009C292B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6FBAB2B811863009C292B /* ContentView.swift */; };
 		5EA6FBAE2B811864009C292B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EA6FBAD2B811864009C292B /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5EA196202B825391002DDDDB /* GetDifficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDifficulty.swift; sourceTree = "<group>"; };
 		5EA6FBA62B811863009C292B /* Cooker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cooker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA6FBA92B811863009C292B /* CookerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookerApp.swift; sourceTree = "<group>"; };
 		5EA6FBAB2B811863009C292B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				5EA6FBAB2B811863009C292B /* ContentView.swift */,
 				AE953F212B816B15007E3521 /* CookViewModel.swift */,
 				AE9073C42B815DE0000B109C /* PreferenceView.swift */,
+				5EA196202B825391002DDDDB /* GetDifficulty.swift */,
 				AEBB7C5D2B812C77002A30D9 /* CardView.swift */,
 				AEBB7C5F2B812D12002A30D9 /* CardStackView.swift */,
 				5EA6FBAD2B811864009C292B /* Assets.xcassets */,
@@ -173,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEBB7C582B811D33002A30D9 /* User.swift in Sources */,
+				5EA196212B825391002DDDDB /* GetDifficulty.swift in Sources */,
 				AE953F222B816B15007E3521 /* CookViewModel.swift in Sources */,
 				AEBB7C602B812D12002A30D9 /* CardStackView.swift in Sources */,
 				AEBB7C562B811D03002A30D9 /* Recipe.swift in Sources */,
