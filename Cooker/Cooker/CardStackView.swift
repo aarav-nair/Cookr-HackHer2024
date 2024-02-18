@@ -69,6 +69,7 @@ struct CardStackView: View {
     
     private func removeReceipt(_ id: Int) {
         recipes = recipes.filter { $0.id != id }
+        cookViewModel.selectedRecipe = cookViewModel.selectedRecipe.filter { $0.id != id }
     }
     
     private func getCardWidth(_ geometry: GeometryProxy, id: Int) -> CGFloat {

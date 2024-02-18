@@ -22,15 +22,15 @@ struct ContentView: View {
             PreferencesScreen(tabSelection: $selection)
                 .tag(Selection.preference)
                 .tabItem {
-                    Label("Preference", systemImage: "tray.and.arrow.down.fill")
+                    Label("Preference", systemImage: "person.circle.fill")
                 }
 
             CardStackView()
                 .tag(Selection.card)
                 .tabItem {
-                    Label("Card Stack", systemImage: "menucard")
+                    Label("Swipe", systemImage: "menucard")
                 }
-            MyRecipesView(recipeArray: [])
+            MyRecipesView()
                 .tag(Selection.cookbook)
                 .tabItem {
                     Label("Cookbook", systemImage: selection == .cookbook ? "book.fill": "book.closed")

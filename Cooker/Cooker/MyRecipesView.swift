@@ -9,7 +9,8 @@ import Foundation
 import SwiftUI
 
 struct MyRecipesView: View {
-    var recipeArray: [Recipe]
+    @Environment(CookViewModel.self) private var cookViewModel
+    
     @State private var searchText: String = ""
     
     var body: some View {
@@ -39,9 +40,9 @@ struct MyRecipesView: View {
     
     var searchResults: [Recipe] {
         if searchText.isEmpty {
-            return recipeArray
+            return cookViewModel.selectedRecipe
         } else {
-            return recipeArray.filter { $0.recipeName.lowercased().contains(searchText.lowercased()) }
+            return cookViewModel.selectedRecipe.filter { $0.recipeName.lowercased().contains(searchText.lowercased()) }
         }
     }
 }
@@ -114,5 +115,5 @@ struct IndividualRecipeView: View {
     let rec = Recipe(id: 1, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."], funFact: "Pizza tastes good")
     let rec2 = Recipe(id: 2, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
     let rec3 = Recipe(id: 3, imageName: "cheesepizza", recipeName: "Random food", cookTime: 12, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
-    return MyRecipesView(recipeArray: [rec, rec2, rec3])
+    return MyRecipesView()
 }
