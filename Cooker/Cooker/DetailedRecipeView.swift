@@ -95,15 +95,17 @@ struct DetailedRecipeView: View {
                 Text("Instructions:")
                     .font(.system(size: 15 ,weight: .semibold ,design: .serif))
                     .foregroundStyle(Color.black)
-                ForEach(recipe.instructions.indices) { i in
-                    HStack {
-                        Text("\(i+1). \(recipe.instructions[i])")
-                            .font(.system(size: 12 ,weight: .thin ,design: .serif))
-//                            .padding()
-                            .foregroundStyle(Color.black)
-                        Spacer()
-                    }
-                }
+                VStack(alignment: .leading) {
+                    ForEach(recipe.instructions.indices) { i in
+                        HStack {
+                            Text("\(i+1). \(recipe.instructions[i])")
+                                .multilineTextAlignment(.leading)
+                                .font(.system(size: 12 ,weight: .thin ,design: .serif))
+                                .padding(.horizontal)
+                                .foregroundStyle(Color.black)
+                            Spacer()
+                        }
+                    }}
             }
         }
     }

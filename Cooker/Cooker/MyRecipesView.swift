@@ -93,10 +93,11 @@ struct IndividualRecipeView: View {
                         .foregroundStyle(.black)
                     Spacer()
                     Image(systemName: "gauge.with.dots.needle.bottom.50percent")
-                        .foregroundStyle(.red)
+                        .foregroundStyle(.black)
                     Text(GetDifficulty(rec: recipe))
                         .font(.subheadline)
                         .bold()
+                        .foregroundStyle(.black)
                     Spacer()
                 }
             }
