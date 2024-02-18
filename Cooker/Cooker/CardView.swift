@@ -54,7 +54,7 @@ struct CardView: View {
                 VStack(spacing: 10) {
                     HStack {
                         
-                        Text(recipe.description)
+                        Text(recipe.description ?? "")
                             .multilineTextAlignment(.leading)
                             .lineLimit(4)
                             .font(.subheadline)

@@ -27,6 +27,6 @@ struct Recipe: Identifiable, Hashable, Decodable {
     
     var funFact: String?
     
-    var description: String
+    var description: String?
         
 }
