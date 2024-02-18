@@ -29,7 +29,9 @@ struct DetailedRecipeView: View {
                     }
                     Spacer()
                     Button {
-                        cookViewModel.allRecipes.removeAll(where: { $0 == recipe } )
+                        cookViewModel.selectedRecipe.removeAll(where: { 
+                            let x = $0 == recipe
+                             return x} )
                         dismiss()
                     } label: {
                         Image(systemName: "trash")

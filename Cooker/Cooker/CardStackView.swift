@@ -39,7 +39,7 @@ struct CardStackView: View {
                                 ForEach(recipes, id: \.self) { recipe in
                                     
                                     
-                                    CardView(handler: removeReceipt, recipe: recipe)
+                                    CardView(handler: removeRecipe, recipe: recipe)
                                         .frame(width: getCardWidth(geometry, id: recipe.id), height: 400)
                                         .offset(x: 0, y: getCardOffset(geometry, id: recipe.id))
                                     
@@ -69,7 +69,7 @@ struct CardStackView: View {
         })
     }
     
-    private func removeReceipt(_ id: Int) {
+    private func removeRecipe(_ id: Int) {
         recipes = recipes.filter { $0.id != id }
         cookViewModel.selectedRecipe = cookViewModel.selectedRecipe.filter { $0.id != id }
     }
