@@ -136,6 +136,13 @@ struct PreferencesScreen: View {
                         cookViewModel.selectedPreferences = selectedPreferences
                         cookViewModel.selectedCuisines = selectedCuisines
                         tabSelection = .card
+                        Task {
+                            do {
+                                try await fetch()
+                            } catch {
+                                print(error)
+                            }
+                        }
                     } label : {
                         Text("Done")
                             .font(.system(size: 15, weight: .semibold, design: .default))
@@ -154,8 +161,21 @@ struct PreferencesScreen: View {
         
         
     }
+    
+    func fetch() async throws -> [Recipe] {
+        let url = URL(string: "http://localhost:3000/recipes")!
+        
+        let (data, _) = try await URLSession.shared.data(from: url)
+        
+        let decoded = try JSONDecoder().decode([Recipe].self, from: data)
+        
+        print(decoded)
+        
+        return decoded
+    }
 }
 
 #Preview {
     PreferencesScreen(tabSelection: .constant(Selection.preference))
+        .environment(CookViewModel())
 }
