@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct DetailedRecipeView: View {
-    //    @Environment(CookViewModel.self) private var cookViewModel
+    @Environment(CookViewModel.self) private var cookViewModel
     @Environment(\.dismiss) var dismiss
     @State var doesNothing = false
     var recipe: Recipe
@@ -17,7 +17,7 @@ struct DetailedRecipeView: View {
     var body: some View {
         ZStack {
             Color.defaultBackgroundColor
-            VStack {
+            ScrollView {
                 HStack {
                     Button {
                         dismiss()
@@ -29,7 +29,7 @@ struct DetailedRecipeView: View {
                     }
                     Spacer()
                     Button {
-                        //                    cookViewModel.allRecipes.removeAll(where: { $0 == recipe } )
+                        cookViewModel.allRecipes.removeAll(where: { $0 == recipe } )
                         dismiss()
                     } label: {
                         Image(systemName: "trash")
@@ -106,5 +106,6 @@ struct DetailedRecipeView: View {
 #Preview {
     let rec = Recipe(id: 1, imageName: "cheesepizza", recipeName: "Cheese Pizza", cookTime: 12, cuisine: "Italian", dietaryPreferences: ["Vegetarian"], ingredients: ["Dough", "Cheese", "Sauce"], instructions: ["Spread the pizza sauce onto the dough.",  "Sprinkle with cheeses.", "Bake for 12 to 14 minutes."])
     return DetailedRecipeView(recipe: rec)
+        .environment(CookViewModel())
 }
     
