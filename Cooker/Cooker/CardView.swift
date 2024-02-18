@@ -14,6 +14,8 @@ enum Option: String {
 
 struct CardView: View {
     
+    @Environment(CookViewModel.self) var cookViewModel
+    
     @State private var translation: CGSize = .zero
     @State private var option: Option? = nil
     
@@ -52,7 +54,7 @@ struct CardView: View {
                 VStack(spacing: 10) {
                     HStack {
                         
-                        Text(recipe.funFact ?? "Haha")
+                        Text(recipe.description)
                             .multilineTextAlignment(.leading)
                             .lineLimit(4)
                             .font(.subheadline)
@@ -110,6 +112,7 @@ struct CardView: View {
                         if (self.translation.width > 180) {
                             self.option = .gallery
                             handler(recipe.id)
+                            cookViewModel.selectedRecipe.append(recipe)
                         }
                         
                         // swipe to left
@@ -134,7 +137,7 @@ struct CardView: View {
 
 #Preview {
     
-    let recipe = Recipe(id: 1, imageName: "cheesepizza", recipeName: "Dialog Title", cookTime: 30, calories: 300, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"], funFact: "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made. ")
+    let recipe = Recipe(id: 1, imageName: "cheesepizza", recipeName: "Dialog Title", cookTime: 30, cuisine: "USA", dietaryPreferences: ["no milk"], ingredients: ["apple"], instructions: ["cook", "clean", "eat"], funFact: "A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made. ", description: "")
     
     return CardView(handler: { _ in
         
