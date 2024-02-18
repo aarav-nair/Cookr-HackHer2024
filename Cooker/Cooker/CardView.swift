@@ -69,7 +69,8 @@ struct CardView: View {
                         Image(systemName: "takeoutbag.and.cup.and.straw")
                             .foregroundStyle(.yellow)
                         Text("Ingredients")
-                            .font(.system(size: 15 ,weight: .thin ,design: .serif))
+                            .font(.subheadline)
+                            .bold()
                         
                         Spacer()
                         
@@ -77,14 +78,16 @@ struct CardView: View {
                         Image(systemName: "clock")
                             .foregroundStyle(.blue)
                         Text("cook time")
-                            .font(.system(size: 15 ,weight: .thin ,design: .serif))
+                            .font(.subheadline)
+                            .bold()
                         Spacer()
                         
                         Spacer()
                         Image(systemName: "gauge.with.dots.needle.bottom.50percent")
                             .foregroundStyle(.red)
                         Text(GetDifficulty(rec: recipe))
-                            .font(.system(size: 15 ,weight: .thin ,design: .serif))
+                            .font(.subheadline)
+                            .bold()
                         Spacer()
                     }
                 }
