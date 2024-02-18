@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe: Identifiable, Hashable, Decodable {
+struct Recipe: Identifiable, Hashable, Equatable, Decodable {
     
     var id: Int
     
@@ -16,6 +16,8 @@ struct Recipe: Identifiable, Hashable, Decodable {
     var recipeName: String
     
     var cookTime: Int
+    
+    var calories: Int
     
     var cuisine: String
     
@@ -27,6 +29,4 @@ struct Recipe: Identifiable, Hashable, Decodable {
     
     var funFact: String?
     
-    var description: String
-        
 }
