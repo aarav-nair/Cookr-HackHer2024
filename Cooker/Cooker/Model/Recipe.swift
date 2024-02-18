@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe: Identifiable, Hashable, Equatable {
+struct Recipe: Identifiable, Hashable, Equatable, Decodable {
     
     var id: Int
     
