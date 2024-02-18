@@ -28,6 +28,8 @@ struct CardStackView: View {
                     
                     Spacer()
                     
+                    Spacer()
+                    
                     GeometryReader { geometry in
                         
                         VStack {
@@ -36,11 +38,6 @@ struct CardStackView: View {
                                 
                                 ForEach(recipes, id: \.self) { recipe in
                                     
-//                                    for element in cookViewModel.selectedCuisines {
-//                                        if !recipe.cuisines.contains(element) {
-//                                            allCuisinesIncluded = false
-//                                        }
-//                                    }
                                     
                                     CardView(handler: removeReceipt, recipe: recipe)
                                         .frame(width: getCardWidth(geometry, id: recipe.id), height: 400)
@@ -55,27 +52,16 @@ struct CardStackView: View {
                     
                 }
             }
-            .navigationTitle("Choose your recipes")
+            .navigationTitle("Choose recipes")
         }
-        .padding()
+//        .padding()
         .background(Color.defaultBackgroundColor)
-        .onAppear {
-            print("selected preference ")
-            print(cookViewModel.selectedPreferences)
-            
-            print("selected cusines ")
-            print(cookViewModel.selectedCuisines)
-        }
         
         .onAppear(perform: {
             
             recipes = cookViewModel.allRecipes.filter { recipe in
                 recipe.dietaryPreferences.contains { dietaryPreference in
                     cookViewModel.selectedPreferences.contains(dietaryPreference)
-//                    
-//                    (recipe.cuisine.contains { c in
-//                        cookViewModel.contains(c))
-                    
                 }
             }
         })

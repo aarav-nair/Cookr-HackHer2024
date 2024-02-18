@@ -26,5 +26,7 @@ struct Recipe: Identifiable, Hashable {
     var instructions: [String]
     
     var funFact: String?
+    
+    var description: String
         
 }
