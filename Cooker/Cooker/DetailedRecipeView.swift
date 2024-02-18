@@ -11,7 +11,6 @@ import SwiftUI
 struct DetailedRecipeView: View {
     //    @Environment(CookViewModel.self) private var cookViewModel
     @Environment(\.dismiss) var dismiss
-    @State private var selection: Page = .ingredients
     @State var doesNothing = false
     var recipe: Recipe
     
