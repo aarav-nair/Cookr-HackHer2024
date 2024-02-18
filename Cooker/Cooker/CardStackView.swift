@@ -59,11 +59,13 @@ struct CardStackView: View {
         
         .onAppear(perform: {
             
-            recipes = cookViewModel.allRecipes.filter { recipe in
+            recipes = cookViewModel.selectedPreferences.count > 0 ?
+            cookViewModel.allRecipes.filter { recipe in
                 recipe.dietaryPreferences.contains { dietaryPreference in
                     cookViewModel.selectedPreferences.contains(dietaryPreference)
                 }
             }
+            : cookViewModel.allRecipes
         })
     }
     
