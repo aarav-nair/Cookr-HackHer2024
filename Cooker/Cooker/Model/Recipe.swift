@@ -29,4 +29,6 @@ struct Recipe: Identifiable, Hashable, Equatable {
     
     var funFact: String?
     
+    var description: String
+        
 }
